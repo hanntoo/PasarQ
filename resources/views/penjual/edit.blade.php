@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/create_edit.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Edit Produk | PasarQ</title>
+</head>
+<body class="container">
+    <head></head>
+    <main>
+        <form action="/dashboard/{{$produk->id_produk}}" method="POST" enctype="multipart/form-data">
+            @method('put')
+                @csrf
+                <h2>Edit {{$produk->nama_produk}}</h2>
+                <hr>
+                <div class="mb-3">
+                    <label for="nama_produk" class="form-label">Nama Produk</label>
+                    <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="{{$produk->nama_produk}}" placeholder="Teks | Contoh: Mangga Arumanis">
+                    @error('nama_produk')
+                        <span class="text-danger" >{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="harga_produk" class="form-label">Harga Produk</label>
+                    <input type="number" class="form-control" id="harga_produk" name="harga_produk" value="{{$produk->harga_produk}}" placeholder="Angka | Contoh: 10000">
+                    @error('harga_produk')
+                        <span class="text-danger" >{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <div class="form-group">
+                        <label for="kategori_produk" style="padding-bottom: 8px;">Kategori Produk</label>
+                        <select class="form-control" id="kategori_produk" name="kategori_produk">
+                          <option value="buah" {{ $produk->kategori_produk == 'buah' ? 'selected' : '' }}>Buah</option>
+                          <option value="sayur" {{ $produk->kategori_produk == 'sayur' ? 'selected' : '' }}>Sayur</option>
+                          <option value="daging" {{ $produk->kategori_produk == 'daging' ? 'selected' : '' }}>Daging</option>
+                          <option value="ikan" {{ $produk->kategori_produk == 'ikan' ? 'selected' : '' }}>Ikan</option>
+                          <option value="rempah-rempah" {{ $produk->kategori_produk == 'rempah-rempah' ? 'selected' : '' }}>Rempah-rempah</option>
+                          <option value="jajanan" {{ $produk->kategori_produk == 'jajanan' ? 'selected' : '' }}>Jajanan</option>
+                          <option value="elektronik" {{ $produk->kategori_produk == 'elektronik' ? 'selected' : '' }}>Elektronik</option>
+                          <option value="pakaian" {{ $produk->kategori_produk == 'pakaian' ? 'selected' : '' }}>Pakaian</option>
+                          <option value="aksesori" {{ $produk->kategori_produk == 'aksesori' ? 'selected' : '' }}>Aksesori</option>
+                          <option value="kosmetik" {{ $produk->kategori_produk == 'kosmetik' ? 'selected' : '' }}>Kosmetik</option>
+                          <option value="perabotan rumah" {{ $produk->kategori_produk == 'perabotan rumah' ? 'selected' : '' }}>Perabotan Rumah</option>
+                          <option value="peralatan dapur" {{ $produk->kategori_produk == 'peralatan dapur' ? 'selected' : '' }}>Peralatan Dapur</option>
+                          <option value="mainan" {{ $produk->kategori_produk == 'mainan' ? 'selected' : '' }}>Mainan</option>
+                          <option value="peralatan kantor" {{ $produk->kategori_produk == 'peralatan kantor' ? 'selected' : '' }}>Peralatan Kantor</option>
+                          <option value="peralatan sekolah" {{ $produk->kategori_produk == 'peralatan sekolah' ? 'selected' : '' }}>Peralatan Sekolah</option>
+                          <option value="olahraga" {{ $produk->kategori_produk == 'olahraga' ? 'selected' : '' }}>Olahraga</option>
+                        </select>
+                    </div>
+                    @error('kategori_produk')
+                        <span class="text-danger" >{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="berat_produk" class="form-label">Berat Produk</label>
+                    <input type="text" class="form-control" id="berat_produk" name="berat_produk" value="{{$produk->berat_produk}}" placeholder="Angka dan sertakan satuannya | Contoh: 0.5 kg">
+                    @error('berat_produk')
+                        <span class="text-danger" >{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="deskripsi_produk" class="form-label">Deskripsi Produk</label>
+                    <textarea type="text" class="form-control" id="deskripsi_produk" name="deskripsi_produk" placeholder="Teks | Contoh: Mangga Arumanis ini kami ambil dari Pengebun di Probolinggo, jadi dijamin keasliannya. Mangga ini kami jual kiloan, dengan rata-rata berat satu buahnya 0.5 kg. Stok 1, berarti sisa 1 kilogram Mangga (bisa jadi 2 Mangga, sesuai berat Mangga yang ada)">{{$produk->deskripsi_produk}}</textarea>
+                    @error('deskripsi_produk')
+                        <span class="text-danger" >{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="stok_produk" class="form-label">Stok Produk</label>
+                    <input type="number" class="form-control" id="stok_produk" name="stok_produk" value="{{$produk->stok_produk}}" placeholder="Angka | Contoh: 5">
+                    @error('stok_produk')
+                        <span class="text-danger" >{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="foto" class="form-label">Foto Produk</label>
+                    <div>
+                        <img src="{{ asset($produk->foto_produk) }}" alt="fotoproduk" style="width: 150px; height: auto;">
+                    </div>
+                    <p>
+                        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Edit Foto Produk
+                        </button>
+                    </p>
+                    @error('foto')
+                        <span class="text-danger" >{{ $message }}</span>
+                    @enderror
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <input class="form-control" type="file" id="foto" name="foto">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="col-sm-5">
+                    <button type="submit" name="submit" value="Save" class="btn btn-primary">Simpan</button>
+                    <a href="/dashboard"><button type="button" class="btn btn-outline-danger">Batal</button></a>
+                    </div>
+                </div>
+        </form>
+    </main>
+    <footer></footer>
+</body>
+</html>

@@ -19,8 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
-    Route::get('/penjual', [PenjualController::class, 'index'])->name('penjual.home');
-    Route::view('/aboutpenjual', 'penjual.about')->name('penjual.about');
+    Route::get('/dashboard', [PenjualController::class, 'index']);
+    Route::get('/dashboard',[PenjualController::class, 'search']);
+    Route::get('/dashboard/create',[PenjualController::class,'create']);
+    Route::post('/dashboard/store',[PenjualController::class,'store']);
+    Route::get('/dashboard/edit={id_produk}',[PenjualController::class,'edit']);
+    Route::put('/dashboard/{id_produk}',[PenjualController::class,'update']);
+    Route::delete('/dashboard/hapus={id_produk}',[PenjualController::class,'destroy']);
 });
 
 Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
