@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\ProfileController;
@@ -31,5 +32,11 @@ Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
 });
 
 Route::view('/about', 'about')->name('about');
+
+Route::middleware(['auth', 'checkRole:admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin',[AdminController::class, 'search']);
+    Route::delete('/admin/hapus={id}',[AdminController::class,'destroy']);
+});
 
 require __DIR__.'/auth.php';
