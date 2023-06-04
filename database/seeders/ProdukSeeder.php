@@ -15,7 +15,7 @@ class ProdukSeeder extends Seeder
     {
         Produk::create([
             'id_penjual' => 3,
-            'kategori_produk' => 'buah',
+            'id_kategori' => 1,
             'nama_produk' => 'Apel',
             'harga_produk' => 5000,
             'berat_produk' => '1 kg',
