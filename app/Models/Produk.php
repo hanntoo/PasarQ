@@ -10,7 +10,6 @@ class Produk extends Model
     use HasFactory;
 
     protected $table = 'produk';
-    protected $primaryKey = 'id_produk';
 
     protected $fillable = [
         'id_penjual',
@@ -23,13 +22,13 @@ class Produk extends Model
         'stok_produk',
     ];
 
-    public function kategori()
-    {
-        return $this->belongsTo(Kategori::class, 'id_kategori');
-    }
-
     public function penjual()
     {
         return $this->belongsTo(User::class, 'id_penjual');
+    }
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'id_kategori');
     }
 }

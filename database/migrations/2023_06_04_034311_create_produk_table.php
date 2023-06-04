@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProdukTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('produk', function (Blueprint $table) {
@@ -20,14 +25,21 @@ class CreateProdukTable extends Migration
             $table->integer('stok_produk');
             $table->timestamps();
 
+            // Add the foreign key constraints
             $table->foreign('id_penjual')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('id_kategori')->references('id_kategori')->on('kategori')->onDelete('cascade');
+            $table->foreign('id_kategori')->references('id')->on('kategori')->onDelete('cascade');
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::table('produk', function (Blueprint $table) {
+            // Drop the foreign key constraints
             $table->dropForeign(['id_penjual']);
             $table->dropForeign(['id_kategori']);
         });
