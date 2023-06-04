@@ -18,11 +18,11 @@ class CreateProdukTable extends Migration
             $table->unsignedBigInteger('id_penjual');
             $table->unsignedBigInteger('id_kategori');
             $table->string('nama_produk', 100);
-            $table->integer('harga_produk');
+            $table->integer('harga_produk', 50);
             $table->string('berat_produk', 255);
             $table->string('foto_produk', 255);
             $table->text('deskripsi_produk');
-            $table->integer('stok_produk');
+            $table->integer('stok_produk', 20);
             $table->timestamps();
 
             // Add the foreign key constraints
