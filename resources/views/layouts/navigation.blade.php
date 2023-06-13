@@ -17,7 +17,7 @@
             </button>
         </div>
 
-        <div class="flex items-center space-x-4 sm:-my-px sm:ml-10">
+        <div class="flex items-center space-x-4 ml-1 sm:-my-px sm:ml-10">
             <a href="#" class="text-center text-gray-700 hover:text-blue-700 transition relative">
                 <div class="text-2xl">
                     <i class="far fa-heart"></i>
