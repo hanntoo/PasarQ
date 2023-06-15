@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Date;
 
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    //untuk crud-user
     public function index(){
         $user = User::all();
         return view('admin.dashboard', compact('user'));
@@ -89,5 +90,63 @@ class AdminController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect('/admin');
+    }
+
+    //untuk crud-kategori
+    public function indexK(){
+        $kategori = Kategori::all();
+        return view('admin.kategori.dashboard', compact('user'));
+    }
+    public function searchK(Request $request){
+        $keyword = $request->cari_kategori;
+        if($request->has('cari_kategori')) {
+            $kategori = Kategori::where('nama','LIKE','%'.$keyword.'%')
+            ->get();
+        }
+        else{
+            $kategori = Kategori::all();
+        }
+        return view('admin.kategori.dashboard',['kategori' => $kategori]);
+    }
+    public function createK()
+    {
+        return view('admin.kategori.create');
+    }
+
+    public function storeK(Request $request)
+    {
+        $request->validate([
+            'nama_kategori' => 'required|string'
+        ], [
+            'required' => 'Kolom :attribute harus diisi',
+            'string' => 'Kolom :attribute harus berupa huruf ataupun angka'
+        ]);
+        $kategori = new Kategori;
+        $kategori->nama = $request->nama_kategori;
+        $kategori->save();
+        return redirect('/admin/kategori');
+    }
+    public function editK($id_kategori)
+    {
+        $kategori = Kategori::find($id_kategori);
+        return view('admin.kategori.edit',['kategori' => $kategori]);
+    }
+    public function updateK($id_kategori, Request $request)
+    {
+        $request->validate([
+            'nama_kategori' => 'required|string'
+        ], [
+            'required' => 'Kolom :attribute harus diisi',
+            'string' => 'Kolom :attribute harus berupa huruf ataupun angka'
+        ]);
+        $kategori = Kategori::find($id_kategori);
+        $kategori->nama = $request->nama_kategori;
+        $kategori->save();
+        return redirect('/admin/kategori');
+    }
+    public function destroyK($id_kategori){
+        $kategori = Kategori::find($id_kategori);
+        $kategori->delete();
+        return redirect('/admin/kategori');
     }
 }
