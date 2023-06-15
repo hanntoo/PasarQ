@@ -24,6 +24,7 @@
             </form>
         </div>
         <hr>
+        <a href="/admin/create"><button class="btn btn-primary" type="submit" id="create-btn">Tambah User</button></a>
         @if ($user->count() == 0)
             <div class="alert alert-danger" role="alert">
                 <p class="text-center">User tidak ditemukan.</p>

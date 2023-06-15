@@ -36,6 +36,10 @@ Route::view('/about', 'about')->name('about');
 Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/admin',[AdminController::class, 'search']);
+    Route::get('/admin/create',[AdminController::class, 'create']);
+    Route::post('/admin/store',[AdminController::class,'store']);
+    Route::get('/admin/edit={id}',[AdminController::class,'edit']);
+    Route::put('/admin/{id}',[AdminController::class,'update']);
     Route::delete('/admin/hapus={id}',[AdminController::class,'destroy']);
 });
 
