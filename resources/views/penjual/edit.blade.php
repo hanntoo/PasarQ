@@ -13,21 +13,7 @@
     <title>Edit Produk | PasarQ</title>
 </head>
 <body class="container">
-    <head>
-        <nav>
-            <button type="button" id="toggle-btn">
-              <i class="fa fa-bars"></i>
-            </button>
-            <span>Penjual - PasarQ</span>
-            <ul class="sidebar-menu">
-              <li><a href="index.html"><i class="fa fa-home"></i>Profile Penjual</a></li>
-              <li><a href="halaman2.html"><i class="fa fa-suitcase"></i>List Product</a></li>
-              <li><a href="halaman3.html"><i class="fa fa-user"></i>Riwayat</a></li>
-              <li><a href="halaman4.html"><i class="fa fa-gear"></i>Logout</a></li>
-              <li id="bgModeBtn"><a href="#"><i id="bgModeIcon" class="fa fa-sun-o"></i>Mode</a></li>
-            </ul>
-          </nav>
-    </head>
+    <head></head>
     <main>
         <form action="/dashboard/{{$produk->id_produk}}" method="POST" enctype="multipart/form-data">
             @method('put')

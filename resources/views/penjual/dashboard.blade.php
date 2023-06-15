@@ -13,21 +13,7 @@
     <title>Dashboard | PasarQ</title>
 </head>
 <body class="container">
-    <head>
-        <nav>
-            <button type="button" id="toggle-btn">
-              <i class="fa fa-bars"></i>
-            </button>
-            <span>Penjual - PasarQ</span>
-            <ul class="sidebar-menu">
-              <li><a href="index.html"><i class="fa fa-home"></i>Profile Penjual</a></li>
-              <li><a href="halaman2.html"><i class="fa fa-suitcase"></i>List Product</a></li>
-              <li><a href="halaman3.html"><i class="fa fa-user"></i>Riwayat</a></li>
-              <li><a href="halaman4.html"><i class="fa fa-gear"></i>Logout</a></li>
-              <li id="bgModeBtn"><a href="#"><i id="bgModeIcon" class="fa fa-sun-o"></i>Mode</a></li>
-            </ul>
-          </nav>
-    </head>
+    <head></head>
     <main>
         <h2>List Produk</h2>
         <hr>
@@ -51,15 +37,15 @@
             <table class="table table-bordered border-dark">
                 <thead>
                     <tr class="table-dark">
-                    <th scope="col">Id</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">Berat</th>
-                    <th scope="col">Foto</th>
-                    <th scope="col">Deskripsi</th>
-                    <th scope="col">Stok</th>
-                    <th scope="col">Option</th>
+                    <th scope="col" class="col-1">Id</th>
+                    <th scope="col" class="col-1">Nama</th>
+                    <th scope="col" class="col-1">Harga</th>
+                    <th scope="col" class="col-1">Kategori</th>
+                    <th scope="col" class="col-1">Berat</th>
+                    <th scope="col" class="col-4">Foto</th>
+                    <th scope="col" class="col-4">Deskripsi</th>
+                    <th scope="col" class="col-1">Stok</th>
+                    <th scope="col" class="col-1">Option</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
