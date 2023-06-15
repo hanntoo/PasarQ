@@ -50,7 +50,7 @@
                             <th scope="row">{{$p->id_produk}}</th>
                             <td>{{$p->nama_produk}}</td>
                             <td>Rp.{{ number_format($p->harga_produk, 0, ',', '.') }}</td>
-                            <td>{{ $p->kategori_produk ? $p->kategori_produk : 'N/A'}}</td>
+                            <td>{{ $p->kategori->nama ? $p->kategori->nama : 'N/A'}}</td>
                             @if ($p->berat_produk > 0)
                                 <td class="text-center">{{$p->berat_produk}}</td>
                             @else

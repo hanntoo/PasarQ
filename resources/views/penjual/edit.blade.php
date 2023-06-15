@@ -35,22 +35,9 @@
                     <div class="form-group">
                         <label for="kategori_produk" style="padding-bottom: 8px;">Kategori Produk</label>
                         <select class="form-control" id="kategori_produk" name="kategori_produk">
-                          <option value="buah" {{ $produk->kategori_produk == 'buah' ? 'selected' : '' }}>Buah</option>
-                          <option value="sayur" {{ $produk->kategori_produk == 'sayur' ? 'selected' : '' }}>Sayur</option>
-                          <option value="daging" {{ $produk->kategori_produk == 'daging' ? 'selected' : '' }}>Daging</option>
-                          <option value="ikan" {{ $produk->kategori_produk == 'ikan' ? 'selected' : '' }}>Ikan</option>
-                          <option value="rempah-rempah" {{ $produk->kategori_produk == 'rempah-rempah' ? 'selected' : '' }}>Rempah-rempah</option>
-                          <option value="jajanan" {{ $produk->kategori_produk == 'jajanan' ? 'selected' : '' }}>Jajanan</option>
-                          <option value="elektronik" {{ $produk->kategori_produk == 'elektronik' ? 'selected' : '' }}>Elektronik</option>
-                          <option value="pakaian" {{ $produk->kategori_produk == 'pakaian' ? 'selected' : '' }}>Pakaian</option>
-                          <option value="aksesori" {{ $produk->kategori_produk == 'aksesori' ? 'selected' : '' }}>Aksesori</option>
-                          <option value="kosmetik" {{ $produk->kategori_produk == 'kosmetik' ? 'selected' : '' }}>Kosmetik</option>
-                          <option value="perabotan rumah" {{ $produk->kategori_produk == 'perabotan rumah' ? 'selected' : '' }}>Perabotan Rumah</option>
-                          <option value="peralatan dapur" {{ $produk->kategori_produk == 'peralatan dapur' ? 'selected' : '' }}>Peralatan Dapur</option>
-                          <option value="mainan" {{ $produk->kategori_produk == 'mainan' ? 'selected' : '' }}>Mainan</option>
-                          <option value="peralatan kantor" {{ $produk->kategori_produk == 'peralatan kantor' ? 'selected' : '' }}>Peralatan Kantor</option>
-                          <option value="peralatan sekolah" {{ $produk->kategori_produk == 'peralatan sekolah' ? 'selected' : '' }}>Peralatan Sekolah</option>
-                          <option value="olahraga" {{ $produk->kategori_produk == 'olahraga' ? 'selected' : '' }}>Olahraga</option>
+                          @foreach ($kategori as $k)
+                            <option value="{{ $k->id_kategori }}" {{ $k->nama == $produk->kategori->nama ? 'selected' : '' }}>{{$k->nama}}</option>
+                          @endforeach
                         </select>
                     </div>
                     @error('kategori_produk')

@@ -35,22 +35,9 @@
                     <label for="kategori_produk">Kategori Produk</label>
                     <select class="form-control" id="kategori_produk" name="kategori_produk">
                       <option value="invalid">Klik disini untuk memilih Kategori Produk</option>
-                      <option value="buah">Buah</option>
-                      <option value="sayur">Sayur</option>
-                      <option value="daging">Daging</option>
-                      <option value="ikan">Ikan</option>
-                      <option value="rempah-rempah">Rempah-rempah</option>
-                      <option value="jajanan">Jajanan</option>
-                      <option value="elektronik">Elektronik</option>
-                      <option value="pakaian">Pakaian</option>
-                      <option value="aksesori">Aksesori</option>
-                      <option value="kosmetik">Kosmetik</option>
-                      <option value="perabotan rumah">Perabotan Rumah</option>
-                      <option value="peralatan dapur">Peralatan Dapur</option>
-                      <option value="mainan">Mainan</option>
-                      <option value="peralatan kantor">Peralatan Kantor</option>
-                      <option value="peralatan sekolah">Peralatan Sekolah</option>
-                      <option value="olahraga">Olahraga</option>
+                      @foreach ($kategori as $k)
+                        <option value="{{ $k->id_kategori }}">{{$k->nama}}</option>
+                      @endforeach
                     </select>
                 </div>
                 @error('kategori_produk')
