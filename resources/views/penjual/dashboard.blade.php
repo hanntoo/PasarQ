@@ -13,7 +13,28 @@
     <title>Dashboard | PasarQ</title>
 </head>
 <body class="container">
-    <head></head>
+    <head>
+    <nav>
+    <button type="button" id="toggle-btn">
+      <i class="fa fa-bars"></i>
+    </button>
+    <span>Penjual - PasarQ</span>
+    <ul class="sidebar-menu">
+      <li><a href="index.html"><i class="fa fa-home">ProfilePenjual</a>
+      <li><a href="halaman2.html"><i class="fa fa-suitcase">ListProduct</a>
+      <li><a href="halaman3.html"><i class="fa fa-user">Riwayat</a>
+      <li><form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-dropdown-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+    </ul>
+  </nav>
+    </head>
     <main>
         <h2>List Produk</h2>
         <hr>
