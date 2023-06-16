@@ -24,6 +24,18 @@ Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
 });
 
 Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
+    Route::get('/keranjang', function () {
+        // Logika untuk halaman keranjang
+    })->name('keranjang');
+    
+    Route::get('/favorites', function () {
+        // Logika untuk halaman favorite
+    })->name('favorites');
+    
+    Route::get('/search', function () {
+        // Logika untuk fitur pencarian
+    })->name('search');
+    
     Route::get('/riwayat', RiwayatController::class)->name('riwayat');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -31,5 +43,6 @@ Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
 });
 
 Route::view('/about', 'about')->name('about');
+
 
 require __DIR__.'/auth.php';
