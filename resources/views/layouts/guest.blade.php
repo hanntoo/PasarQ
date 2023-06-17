@@ -7,6 +7,8 @@
 
         <title>{{ config('app.name', 'PasarQ') }}</title>
 
+        <link rel="icon" href="{{ asset('img/logo_pasarq.jpg') }}">
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
