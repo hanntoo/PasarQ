@@ -56,3 +56,7 @@ td > img {
     width: 100%;
     height: auto;
 }
+
+footer {
+    padding: 10px;
+}

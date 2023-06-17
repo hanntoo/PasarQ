@@ -1,0 +1,19 @@
+.garis {
+    padding: 20px;
+    border: 2px bold black;
+}
+
+.card {
+    padding: 20px;
+    background-color: blue;
+    color: white;
+  }
+  
+  .card p {
+    font-size: 18px;
+  }
+  
+  .card h1 {
+    font-size: 24px;
+  }
+  

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Kategori;
 use App\Models\User;
+use App\Models\Produk;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -15,9 +17,13 @@ class HomeController extends Controller
             $role = Auth()->user()->role;
     
             if($role === 'admin'){
-                return view('admin.home');
+                $user = User::all();
+                $kategori = Kategori::all();
+                return view('admin.home', compact('user', 'kategori'));
             }elseif($role === 'penjual'){
-                return view('penjual.home');
+                $idPenjual = auth()->user()->id;
+                $produk = Produk::where('id_penjual', $idPenjual)->get();
+                return view('penjual.home', compact('produk'));
             }else{
                 return view('home');
             }
