@@ -50,7 +50,7 @@
             } elseif ($jam >= 15 && $jam < 18) {
                 $greeting = 'Selamat sore';
             } else {
-                echo "Selamat malam!";
+                $greeting = 'Selamat malam!';
             }
             $totalUser = $user->count();
             $totalKategori = $kategori->count();
@@ -71,12 +71,6 @@
                 <div class="card">
                     <p>Total Kategori</p>
                     <h1>{{ $totalKategori }}</h1>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card">
-                    <p>Total Penjualan</p>
-                    <h1>Belum ada tabel riwayat</h1>
                 </div>
               </div>
             </div>

@@ -49,7 +49,7 @@
             } elseif ($jam >= 15 && $jam < 18) {
                 $greeting = 'Selamat sore!';
             } else {
-                echo "Selamat malam!";
+                $greeting = 'Selamat malam!';
             }
             $totalProduk = $produk->count();
         ?>
@@ -65,13 +65,45 @@
                     <h1>{{ $totalProduk }}</h1>
                 </div>
               </div>
-              <div class="col">
-                <div class="card">
-                    <p>Total Penjualan</p>
-                    <h1>Belum ada tabel riwayat</h1>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div id="carouselExampleCaptions" class="carousel slide">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          @foreach ($produk as $index => $p)
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                              <img src="{{ $p->foto_produk }}" class="d-block w-100" alt="{{ $p->nama_produk }}">
+                              <div class="carousel-caption d-none d-md-block">
+                                <h3>{{ $p->nama_produk }}</h3>
+                                <h4>Stok tersisa: {{ $p->stok_produk }}</h4>
+                              </div>
+                            </div>
+                          @endforeach
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 20px">
+                <div class="col">
+                  <div class="card">
+                      <p>Riwayat</p>
+                      <h1>Total Riwayat tidak ditemukan</h1>
+                  </div>
                 </div>
               </div>
-            </div>
         </div>
     </main>
     <footer></footer>
