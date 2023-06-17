@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'search'])->name('home');
 
 Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
     Route::get('/penjual', [PenjualController::class, 'index'])->name('penjual.home');

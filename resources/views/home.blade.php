@@ -3,9 +3,9 @@
         <div class="container">
             <div id="carouselExampleControls" class="carousel slide custom-carousel" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    @foreach($produk->slice(1, 5) as $index => $item)
-                        <div class="carousel-item {{ $index == 1 ? 'active' : '' }}">
-                            <img src="{{ $item->foto_produk }}" class="d-block w-100 mw-100" alt="{{ $item->nama_produk }}">
+                    @foreach($produk as $index => $p)
+                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                            <img src="{{ $p->foto_produk }}" class="d-block w-100 mw-100" alt="{{ $p->nama_produk }}">
                         </div>
                     @endforeach
                 </div>

@@ -7,15 +7,18 @@
             </a>
         </div>
 
-        <div class="w-full max-w-xl relative flex">
-            <span class="absolute left-3 top-1.5 text-lg text-gray-400">
-                <i class="fas fa-search"></i>
-            </span>
-            <input type="text" class="w-full border border-primary border-r-0 pl-10 py-2 pr-3 text-sm rounded-l-md rounded-r-none focus:outline-none" placeholder="Search">
-            <button class="bg-blue-500 border-blue-500 text-white px-4 py-2 rounded-r-md rounded-l-none hover:bg-blue-700 hover:text-white transition">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
+        <form action="/" method="GET">
+            @csrf
+            <div class="w-full max-w-xl relative flex">
+                <span class="absolute left-3 top-1.5 text-lg text-gray-400">
+                    <i class="fas fa-search"></i>
+                </span>
+                <input type="search" class="w-full border border-primary border-r-0 pl-10 py-2 pr-3 text-sm rounded-l-md rounded-r-none focus:outline-none" placeholder="Search" name="cari_produk">
+                <button class="bg-blue-500 border-blue-500 text-white px-4 py-2 rounded-r-md rounded-l-none hover:bg-blue-700 hover:text-white transition" name="submit" type="submit" value="save">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
 
         <div class="flex items-center space-x-4 ml-1 sm:-my-px sm:ml-10">
             <a href="#" class="text-center text-gray-700 hover:text-blue-700 transition relative">
