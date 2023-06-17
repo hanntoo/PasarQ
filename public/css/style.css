@@ -1,0 +1,65 @@
+.custom-carousel {
+    height: 50vh;
+    overflow: hidden;
+}
+
+.custom-carousel img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+}
+
+.btn-cart{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1rem;
+    color:#fff;
+    background: #0A2360;
+    border-radius: .5rem;
+    cursor: pointer;
+    text-decoration: none;
+    padding:.25rem 2rem;
+}
+
+.btn-cart:hover{
+    color: white;
+}
+
+.icon-heart, .icon-eye {
+    background-color: #eee;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 1.5rem;
+    color:#0A2360;
+  }
+  
+  .icon-heart:hover, .icon-eye:hover {
+    background-color: #0A2360; /* Ganti dengan warna background saat mouse hover */
+    color: white;
+  }
+  
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+  }
+  .product-title {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  .product-description {
+    margin-top: 10px;
+  }
+  .product-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .quantity-input {
+    width: 100px;
+    margin-top: 10px;
+  }
+  .add-to-cart-button {
+    margin-top: 20px;
+  }
