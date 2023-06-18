@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/side-bar.css') }}"/>
     <script defer src="{{ asset('js/side-bar.js') }}"></script>
-    <title>Edit Produk | PasarQ</title>
+    <title>Edit User | PasarQ</title>
 </head>
 <body class="container">
     <header>
@@ -21,8 +21,9 @@
         </button>
         <span><a href="/">Admin - PasarQ</a></span>
         <ul class="sidebar-menu">
-          <li><a href="index.html" class="tombolnav"><i class="fa fa-home"> ProfileAdmin</i></a></li>
+          <li><a href="/profile" class="tombolnav"><i class="fa fa-home"> ProfileAdmin</i></a></li>
           <li><a href="/admin" class="tombolnav"><i class="fa fa-suitcase"> ListUser</i></a></li>
+          <li><a href="/admin/produk" class="tombolnav"><i class="fa fa-suitcase"> ListProduk</i></a></li>
           <li><a href="/admin/kategori" class="tombolnav"><i class="fa fa-suitcase"> ListKategori</i></a></li>
           <li><a href="halaman3.html" class="tombolnav"><i class="fa fa-user"> Riwayat</i></a></li>
           <li><form method="POST" action="{{ route('logout') }}">
@@ -45,14 +46,14 @@
             <hr>
             <div class="mb-3">
                 <label for="nama_user" class="form-label">Nama User</label>
-                <input type="text" class="form-control" id="nama_user" name="nama_user" value="{{ $user->nama_user }}">
+                <input type="text" class="form-control" id="nama_user" name="nama_user" value="{{ $user->name }}">
                 @error('nama_user')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="email_user" class="form-label">Email User</label>
-                <input type="email" class="form-control" id="email_user" name="email_user" value="{{ $user->email_user }}">
+                <input type="email" class="form-control" id="email_user" name="email_user" value="{{ $user->email }}">
                 @error('email_user')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

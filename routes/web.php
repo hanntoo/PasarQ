@@ -31,6 +31,10 @@ Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
 
 Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
     Route::get('/riwayat', RiwayatController::class)->name('riwayat');
+});
+
+Route::middleware(['auth', 'checkRole:pembeli,penjual,admin'])->group(function () {
+    Route::get('/riwayat', RiwayatController::class)->name('riwayat');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -55,6 +59,9 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/admin/kategori/edit={id_kategori}',[AdminController::class,'editK']);
     Route::put('/admin/kategori/{id_kategori}',[AdminController::class,'updateK']);
     Route::delete('/admin/kategori/hapus={id_kategori}',[AdminController::class,'destroyK']);
+    //lihat & search produk
+    Route::get('/admin/produk', [AdminController::class, 'indexP']);
+    Route::get('/admin/produk',[AdminController::class, 'searchP']);
 });
 
 require __DIR__.'/auth.php';

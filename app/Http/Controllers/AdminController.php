@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Kategori;
+use App\Models\Produk;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
@@ -59,8 +61,14 @@ class AdminController extends Controller
     }
     public function edit($id)
     {
+        $idAdmin = auth()->user()->id;
         $user = User::find($id);
-        return view('admin.edit',['user' => $user]);
+        if($user->id != $idAdmin){
+            return view('admin.edit',['user' => $user]);
+        }
+        else{
+            return redirect('/profile');
+        }
     }
     public function update($id, Request $request)
     {
@@ -87,9 +95,24 @@ class AdminController extends Controller
         return redirect('/admin');
     }
     public function destroy($id){
+        $idAdmin = auth()->user()->id;
         $user = User::find($id);
-        $user->delete();
-        return redirect('/admin');
+        if( $user->id != $idAdmin) {
+            if ($user->role === 'penjual') {
+                $idPenjual = $user->id;
+                $produk = Produk::where('id_penjual', $idPenjual)->get();
+                foreach ($produk as $p) {
+                    Storage::delete(str_replace('storage', 'public', $p->foto_produk));
+                    $p->delete();
+                }
+            }
+            else{}
+            $user->delete();
+            return redirect('/admin');
+        }
+        else {
+            return redirect('/profile');
+        }
     }
 
     //untuk crud-kategori
@@ -148,5 +171,38 @@ class AdminController extends Controller
         $kategori = Kategori::find($id_kategori);
         $kategori->delete();
         return redirect('/admin/kategori');
+    }
+
+    //untuk lihat dan search produk
+    public function indexP(){
+        $produk = Produk::all();
+        $user = User::all();
+        return view('admin.produk', compact('produk', 'user'));
+    }
+    public function searchP(Request $request){
+        $keyword = $request->cari_produk;
+        if($request->has('cari_produk')) {
+            $produk = Produk::where(function ($query) use ($keyword) {
+                $query->where('nama_produk', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('harga_produk', 'LIKE', '%' . $keyword . '%')
+                    ->orWhereHas('kategori', function ($query) use ($keyword) {
+                        $query->where('nama', 'LIKE', '%' . $keyword . '%');
+                    })
+                    ->orWhereHas('penjual', function ($query) use ($keyword) {
+                        $query->where('name', 'LIKE', '%' . $keyword . '%');
+                    })
+                    ->orWhere('berat_produk', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('deskripsi_produk', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('stok_produk', 'LIKE', '%' . $keyword . '%');
+                if ($keyword === 'habis') {
+                    $query->orWhere('stok_produk', 0);
+                }
+            })
+            ->get();
+        }
+        else{
+            $produk = Produk::all();
+        }
+        return view('admin.produk',['produk' => $produk]);
     }
 }

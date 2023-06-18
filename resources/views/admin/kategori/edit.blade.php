@@ -21,8 +21,9 @@
         </button>
         <span><a href="/">Admin - PasarQ</a></span>
         <ul class="sidebar-menu">
-          <li><a href="index.html" class="tombolnav"><i class="fa fa-home"> ProfileAdmin</i></a></li>
+          <li><a href="/profile" class="tombolnav"><i class="fa fa-home"> ProfileAdmin</i></a></li>
           <li><a href="/admin" class="tombolnav"><i class="fa fa-suitcase"> ListUser</i></a></li>
+          <li><a href="/admin/produk" class="tombolnav"><i class="fa fa-suitcase"> ListProduk</i></a></li>
           <li><a href="/admin/kategori" class="tombolnav"><i class="fa fa-suitcase"> ListKategori</i></a></li>
           <li><a href="halaman3.html" class="tombolnav"><i class="fa fa-user"> Riwayat</i></a></li>
           <li><form method="POST" action="{{ route('logout') }}">

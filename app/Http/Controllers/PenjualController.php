@@ -27,6 +27,9 @@ class PenjualController extends Controller
                     ->orWhere('berat_produk', 'LIKE', '%' . $keyword . '%')
                     ->orWhere('deskripsi_produk', 'LIKE', '%' . $keyword . '%')
                     ->orWhere('stok_produk', 'LIKE', '%' . $keyword . '%');
+                if ($keyword === 'habis') {
+                    $query->orWhere('stok_produk', 0);
+                }
             })
             ->get();
         }
@@ -80,9 +83,9 @@ class PenjualController extends Controller
         $produk = Produk::find($id_produk);
         $kategori = Kategori::all();
         $idPenjual = auth()->user()->id;
-        if ($produk->id_penjual != $idPenjual) {
-        return redirect('/dashboard')->with('error', 'Tidak boleh nakal ya, jangan mengotak atik produk dari penjual lain');
-    }
+        if ( !$produk || $produk->id_penjual != $idPenjual ) {
+            return redirect('/dashboard')->with('error', 'Tidak boleh nakal ya, jangan mengotak atik produk dari penjual lain');
+        }
         return view('penjual.edit',compact(['produk', 'kategori']));
     }
 
@@ -119,12 +122,16 @@ class PenjualController extends Controller
     }
 
     public function destroy($id_produk){
+        $idPenjual = auth()->user()->id;
         $produk = Produk::find($id_produk);
-        if ($produk->id_penjual === auth()->user()->id) {
+        if (!$produk || $produk->id_penjual != $idPenjual) {
+            return redirect('/dashboard')->with('error', 'Tidak boleh nakal ya, jangan mengotak atik produk dari penjual lain');
+        }
+        else {
             Storage::delete(str_replace('storage', 'public', $produk->foto_produk));
             $produk->delete();
             return redirect('/dashboard');
         }
-        return redirect('/dashboard')->with('error', 'Tidak boleh nakal ya, jangan mengotak atik produk dari penjual lain');
+        
     }
 }

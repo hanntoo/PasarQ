@@ -21,8 +21,9 @@
         </button>
         <span><a href="/">Admin - PasarQ</a></span>
         <ul class="sidebar-menu">
-          <li><a href="index.html" class="tombolnav"><i class="fa fa-home"> ProfileAdmin</i></a></li>
+          <li><a href="/profile" class="tombolnav"><i class="fa fa-home"> ProfileAdmin</i></a></li>
           <li><a href="/admin" class="tombolnav"><i class="fa fa-suitcase"> ListUser</i></a></li>
+          <li><a href="/admin/produk" class="tombolnav"><i class="fa fa-suitcase"> ListProduk</i></a></li>
           <li><a href="/admin/kategori" class="tombolnav"><i class="fa fa-suitcase"> ListKategori</i></a></li>
           <li><a href="halaman3.html" class="tombolnav"><i class="fa fa-user"> Riwayat</i></a></li>
           <li><form method="POST" action="{{ route('logout') }}">
@@ -38,7 +39,7 @@
       </nav>
         </header>
     <main>
-        <h2>List User</h2>
+        <h2>List User <small style="font-size: 50%">(Pembeli / Penjual)</small></h2>
         <hr>
         <div class="form-group">
             <form action="/admin" method="GET">
@@ -99,9 +100,10 @@
                     <tr class="table-dark">
                         <?php
                             $totalUser = DB::table('users')->count();
+                            $total = $totalUser - 1;
                         ?>
                         <td colspan="2" class="fw-bold text-center">Total User</td>
-                        <td colspan="6" class="fw-bold text-center table-active">{{$totalUser}}</td>
+                        <td colspan="6" class="fw-bold text-center table-active">{{$total}}</td>
                     </tr>
                 </tbody>
             </table>

@@ -19,7 +19,8 @@ class HomeController extends Controller
             if($role === 'admin'){
                 $user = User::all();
                 $kategori = Kategori::all();
-                return view('admin.home', compact('user', 'kategori'));
+                $produk = Produk::all();
+                return view('admin.home', compact('user', 'kategori', 'produk'));
             }elseif($role === 'penjual'){
                 $idPenjual = auth()->user()->id;
                 $produk = Produk::where('id_penjual', $idPenjual)->get();

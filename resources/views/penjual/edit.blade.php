@@ -21,7 +21,7 @@
         </button>
         <span><a href="/">Penjual - PasarQ</a></span>
         <ul class="sidebar-menu">
-          <li><a href="index.html" class="tombolnav"><i class="fa fa-home"> ProfilePenjual</i></a></li>
+          <li><a href="/profile" class="tombolnav"><i class="fa fa-home"> ProfilePenjual</i></a></li>
           <li><a href="/dashboard" class="tombolnav"><i class="fa fa-suitcase"> ListProduk</i></a></li>
           <li><a href="halaman3.html" class="tombolnav"><i class="fa fa-user"> Riwayat</i></a></li>
           <li><form method="POST" action="{{ route('logout') }}">
