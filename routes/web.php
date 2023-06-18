@@ -41,6 +41,7 @@ Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
     Route::get('/favorite', [FavoriteController::class, 'getFavorite'])->name('favorite');
 });
 
+
 Route::view('/about', 'about')->name('about');
 
 require __DIR__.'/auth.php';

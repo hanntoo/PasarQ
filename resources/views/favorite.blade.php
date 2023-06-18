@@ -7,7 +7,7 @@
                 </div>
                 <div class="row">
                     @foreach($favorites as $item)
-                        @include('components.favorite-card', ['item' => $item])
+                        @include('components.product', ['item' => $item])
                     @endforeach
                 </div>
             </div>

@@ -26,7 +26,7 @@
                     <i class="far fa-heart"></i>
                 </div>
                 <div class="text-xs leading-3 absolute -top-2 -right-2">
-                    <span class="w-5 h-5 rounded-full flex items-center justify-center bg-blue-700 text-white text-xs">0</span>
+
                 </div>
             </a>
             <a href="#" class="text-center text-gray-700 hover:text-blue-700 transition relative">

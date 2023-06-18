@@ -7,6 +7,8 @@ use App\Models\favorite;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Produk;
+use Illuminate\Support\Facades\View;
 
 class FavoriteController extends Controller
 {
@@ -42,12 +44,14 @@ class FavoriteController extends Controller
 
     public function getFavorite(){
         $id = Auth::user()->id;
-        $favorites = DB::table('produk')
-        ->select('produk.nama_produk', 'produk.harga_produk', 'produk.stok_produk', 'produk.id_produk', 'produk.foto_produk')
+        $favorites = Produk::select('produk.nama_produk', 'produk.harga_produk', 'produk.stok_produk', 'produk.id_produk', 'produk.foto_produk')
         ->join('favorite', 'produk.id_produk', '=', 'favorite.id_produk')
         ->join('users', 'favorite.id_pembeli', '=', 'users.id')
         ->where('favorite.id_pembeli', $id)
         ->get();
+
+        $countFavorite = $favorites->count();
+
         return view('favorite', compact('favorites'));
     }
 }
