@@ -24,6 +24,18 @@ class ProdukSeeder extends Seeder
             'stok_produk' => 10,
         ]);
 
+        Produk::create([
+            'id_produk' => 2,
+            'id_penjual' => 3,
+            'id_kategori' => 1,
+            'nama_produk' => 'Mangga',
+            'harga_produk' => 5000,
+            'berat_produk' => '1 kg',
+            'foto_produk' => 'foto_mangga.jpg',
+            'deskripsi_produk' => 'Mangga segar dari kebun',
+            'stok_produk' => 10,
+        ]);
+
         Produk::factory()
             ->times(9)
             ->create();
