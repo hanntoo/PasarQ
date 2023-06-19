@@ -42,5 +42,10 @@ class Produk extends Model
     {
         return $this->hasMany(Keranjang::class, 'id_produk');
     }
+
+    public function checkout()
+    {
+        return $this->hasMany(Checkout::class, 'id_produk');
+    }
 }
     

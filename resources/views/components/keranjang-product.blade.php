@@ -7,6 +7,8 @@
                         <h4 class="card-title text-capitalize">{{ $item->nama_produk }}</h4>
                         <p class="card-text">Rp. {{ number_format($item->harga_produk) }},-</p>
                         <p class="card-text">Stok : {{ $item->stok_produk }}</p>
+                        <a href="{{ route('checkout.get', ['id'=> $item->id_produk]) }}" class="btn btn-success">checkout</a>
+                        <br><br>
                         @if(Auth::check())
                             @if($item->keranjang->contains('id_produk', $item->id_produk) && $item->keranjang->contains('id_pembeli', Auth::user()->id))
                                 <form class="cart-form" action="{{ route('keranjang.remove') }}" method="POST">

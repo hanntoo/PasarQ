@@ -10,6 +10,7 @@ use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ Route::middleware(['auth', 'checkRole:pembeli,penjual,admin'])->group(function (
     Route::get('/favorite', [FavoriteController::class, 'getFavorite'])->name('favorite');
     Route::post('/keranjang/addKeranjang', [KeranjangController::class, 'addKeranjang'])->name('keranjang.add');
     Route::post('/keranjang/removeKeranjang', [KeranjangController::class, 'removeKeranjang'])->name('keranjang.remove');
+    Route::post('/chekcout', [CheckoutController::class, 'checkout'])->name('checkout');
+    Route::get('/checkout/{id}', [CheckoutController::class, 'getProductCheckout'])->name('checkout.get');
 });
 
 
