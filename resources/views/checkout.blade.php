@@ -1,7 +1,11 @@
 <x-app-layout>
-    <div class="container p-0">
-        <div class="card px-4">
-            <p class="h8 py-3">Checkout produk</p>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Checkout
+        </h2>
+    </x-slot>
+    <div class="container p-6">
+        <div class="card p-4">
             <div class="row gx-3">
                 <div class="col-6">
                     <img src="{{ $produk->foto_produk }}" alt="">

@@ -2,7 +2,6 @@
                 <div class="card-produk shadow bg-white position-relative" style="width: 20rem;">
                     <img class="card-img-top img-fluid rounded" src="{{ $item->foto_produk }}" alt="{{ $item->nama_produk }}">
                     <div class="card-body text-center body-produk">
-                        {{-- <a href="{{ route('favorite', ['id' => $item->id_produk]) }}" class="fas fa-heart position-absolute icon-heart" style="top: 10px; right: 10px;"></a> --}}
                         @if(Auth::check())
                             @if($item->favorite->contains('id_produk', $item->id_produk) && $item->favorite->contains('id_pembeli', Auth::user()->id))
                                 <form  class="favorite-form" action="{{ route('favorite.remove') }}" method="POST">
@@ -23,7 +22,6 @@
                         <a href="{{ route('detail', ['id' => $item->id_produk]) }}" class="fas fa-eye position-absolute icon-eye" style="top: 10px; left: 10px;"></a>                        
                         <h4 class="card-title text-capitalize">{{ $item->nama_produk }}</h4>
                         <p class="card-text">Rp. {{ number_format($item->harga_produk) }},-</p>
-                        <p class="card-text">Stok : {{ $item->stok_produk }}</p>
                         @if(Auth::check())
                             @if($item->keranjang->contains('id_produk', $item->id_produk) && $item->keranjang->contains('id_pembeli', Auth::user()->id))
                                 <form class="cart-form" action="{{ route('keranjang.remove') }}" method="POST">

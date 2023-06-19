@@ -6,7 +6,6 @@
                 <div class="card-produk shadow bg-white position-relative" style="width: 20rem;">
                     <img class="card-img-top img-fluid rounded" src="{{ $item->foto_produk }}" alt="{{ $item->nama_produk }}">
                     <div class="card-body text-center body-produk">
-                        {{-- <a href="{{ route('favorite', ['id' => $item->id_produk]) }}" class="fas fa-heart position-absolute icon-heart" style="top: 10px; right: 10px;"></a> --}}
                         @if(Auth::check())
                             @if($item->favorite->contains('id_produk', $item->id_produk) && $item->favorite->contains('id_pembeli', Auth::user()->id))
                                 <form  class="favorite-form" action="{{ route('favorite.remove') }}" method="POST">
@@ -22,12 +21,11 @@
                                 </form>
                             @endif
                         @else
-                            <a href="{{ route('login') }}" class="position-absolute icon-heart" style="top: 10px; right: 10px; background: none; color: border: none;"><i class="fas fa-heart"></i></a>
+                            <a href="{{ route('login') }}" class="position-absolute icon-heart" style="top: 10px; right: 10px; background: none; color: border: none;"><i class="far fa-heart"></i></a>
                         @endif
                         <a href="{{ route('detail', ['id' => $item->id_produk]) }}" class="fas fa-eye position-absolute icon-eye" style="top: 10px; left: 10px;"></a>                        
                         <h4 class="card-title text-capitalize">{{ $item->nama_produk }}</h4>
                         <p class="card-text">Rp. {{ number_format($item->harga_produk) }},-</p>
-                        <p class="card-text">Stok : {{ $item->stok_produk }}</p>
                         @if(Auth::check())
                             @if($item->keranjang->contains('id_produk', $item->id_produk) && $item->keranjang->contains('id_pembeli', Auth::user()->id))
                                 <form class="cart-form" action="{{ route('keranjang.remove') }}" method="POST">
@@ -39,7 +37,7 @@
                                 <form class="cart-form" action="{{ route('keranjang.add') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id_produk" value="{{ $item->id_produk }}">
-                                    <button type="submit" class="btn" style="background-color: #0d6efd; color:white; ">Tambah ke Keranjang</button>
+                                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #0d6efd; color:white; ">Tambah ke Keranjang</button>
                                 </form>
                             @endif
                         @else

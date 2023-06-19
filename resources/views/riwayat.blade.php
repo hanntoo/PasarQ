@@ -7,14 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("Ini adalah halaman riwayat pembelian!") }}
-                </div>
-            </div>
-            <!-- resources/views/checkout.blade.php -->
 
-<x-app-layout>
     <div class="container">
         <div class="card">
             <div class="card-header">
@@ -27,9 +20,7 @@
                             <th>Nama Produk</th>
                             <th>Total Harga</th>
                             <th>jumlah produk</th>
-                            <th>ID Produk</th>
                             <th>Foto Produk</th>
-                            <th>ID User</th>
                             <th>Detail</th>
                         </tr>
                     </thead>
@@ -42,8 +33,6 @@
             </div>
         </div>
     </div>
-</x-app-layout>
-
-        </div>
-    </div>
+ </div>
+</div>
 </x-app-layout>

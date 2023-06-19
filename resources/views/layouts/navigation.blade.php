@@ -23,7 +23,7 @@
         <div class="flex items-center space-x-4 ml-1 sm:-my-px sm:ml-10">
             <a href="{{ route('favorite') }}" class="text-center text-gray-700 hover:text-blue-700 transition relative">
                 <div class="text-2xl">
-                    <i class="far fa-heart"></i>
+                    <i class="fas fa-heart"></i>
                 </div>
                 <div class="text-xs leading-3 absolute -top-2 -right-2">
 
@@ -55,12 +55,6 @@
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('About') }}
                     </x-nav-link>
-                    @auth
-                        <x-nav-link :href="route('riwayat')" :active="request()->routeIs('riwayat')">
-                            {{ __('Riwayat') }}
-                        </x-nav-link>
-                    @endauth
-                    
                 </div>
             </div>
             @auth
