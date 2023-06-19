@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\DetailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'search'])->name('home');
 
 Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
     Route::get('/dashboard', [PenjualController::class, 'index']);
@@ -30,6 +32,13 @@ Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
 });
 
 Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
+    Route::get('/keranjang/{id}', function ($id) {
+        return view('keranjang');
+    })->name('keranjang');
+    Route::get('/favorite/{id}', function ($id) {
+        return view('favorite');
+    })->name('favorite');
+    Route::get('/detail/{id}', [DetailController::class, 'show'])->name('detail');
     Route::get('/riwayat', RiwayatController::class)->name('riwayat');
 });
 

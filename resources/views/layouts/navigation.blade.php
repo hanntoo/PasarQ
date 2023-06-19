@@ -1,14 +1,51 @@
+<header class="py-2 shadow-sm bg-white">
+    <div class="container flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="shrink-0 flex items-center">
+            <a href="{{ route('home') }}">
+                <x-application-logo class="block h-9 w-44" />
+            </a>
+        </div>
+
+        <form action="/" method="GET">
+            @csrf
+            <div class="w-full max-w-xl relative flex">
+                <span class="absolute left-3 top-1.5 text-lg text-gray-400">
+                    <i class="fas fa-search"></i>
+                </span>
+                <input type="search" class="w-full border border-primary border-r-0 pl-10 py-2 pr-3 text-sm rounded-l-md rounded-r-none focus:outline-none" placeholder="Search" name="cari_produk">
+                <button class="bg-blue-500 border-blue-500 text-white px-4 py-2 rounded-r-md rounded-l-none hover:bg-blue-700 hover:text-white transition" name="submit" type="submit" value="save">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+
+        <div class="flex items-center space-x-4 ml-1 sm:-my-px sm:ml-10">
+            <a href="#" class="text-center text-gray-700 hover:text-blue-700 transition relative">
+                <div class="text-2xl">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="text-xs leading-3 absolute -top-2 -right-2">
+                    <span class="w-5 h-5 rounded-full flex items-center justify-center bg-blue-700 text-white text-xs">0</span>
+                </div>
+            </a>
+            <a href="#" class="text-center text-gray-700 hover:text-blue-700 transition relative">
+                <div class="text-2xl">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="text-xs leading-3 absolute -top-2 -right-2">
+                    <span class="w-5 h-5 rounded-full flex items-center justify-center bg-blue-700 text-white text-xs">3</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</header>
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div>
+                
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -26,7 +63,6 @@
                     
                 </div>
             </div>
-
             @auth
                 <!-- Settings Dropdown -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -36,7 +72,7 @@
                                 <div>{{ Auth::user()->name }}</div>
 
                                 <div class="ml-1">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                     </svg>
                                 </div>
@@ -46,6 +82,10 @@
                         <x-slot name="content">
                             <x-dropdown-link :href="route('profile.edit')">
                                 {{ __('Profile') }}
+                            </x-dropdown-link>
+
+                            <x-dropdown-link :href="route('riwayat')">
+                                {{ __('Riwayat') }}
                             </x-dropdown-link>
 
                             <!-- Authentication -->
