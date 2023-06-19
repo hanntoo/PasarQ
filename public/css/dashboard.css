@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 20px;
+}
+
+td > img {
+    width: 150px;
+    height: auto;
+}
+
+.optional > div {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+}
+
+#edit {
+    width: 100%;
+    height: auto;
+}
+#hapus {
+    width: 100%;
+    height: auto;
+}
+#edit > img {
+    width: 20px;
+    height: auto;
+}
+#hapus > img {
+    width: 20px;
+    height: auto;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+}
+.search-bar > input {
+    width: 75%;
+    height: auto;
+}
+.search-bar > button {
+    width: 25%;
+    height: auto;
+}
+
+#create-btn {
+    margin-bottom: 10px;
+}
+
+.kotak-tabel {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    padding: 10px;
+}

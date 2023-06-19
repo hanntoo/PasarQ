@@ -10,9 +10,10 @@ class Produk extends Model
     use HasFactory;
 
     protected $table = 'produk';
-    protected $primaryKey = 'id_produk'; // Ubah nama kolom menjadi 'id_produk'
+    protected $primaryKey = 'id_produk';
 
     protected $fillable = [
+        'id_produk',
         'id_penjual',
         'id_kategori',
         'nama_produk',
@@ -42,3 +43,4 @@ class Produk extends Model
         return $this->hasMany(Keranjang::class, 'id_produk');
     }
 }
+    

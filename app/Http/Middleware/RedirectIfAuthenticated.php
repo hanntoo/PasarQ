@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 $user = Auth::user();
                 if ($user->role === 'penjual') {
-                    return redirect()->route('penjual.home');
+                    return redirect()->route('home');
                 } else {
                     return redirect()->route('home');
                 }
