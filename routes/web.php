@@ -38,7 +38,6 @@ Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
 Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
     Route::get('/keranjang', [KeranjangController::class, 'getKeranjang'])->name('keranjang');
     Route::get('/detail/{id}', [DetailController::class, 'show'])->name('detail');
-    Route::get('/riwayat', RiwayatController::class)->name('riwayat');
 });
 
 Route::middleware(['auth', 'checkRole:pembeli,penjual,admin'])->group(function () {
@@ -53,6 +52,8 @@ Route::middleware(['auth', 'checkRole:pembeli,penjual,admin'])->group(function (
     Route::post('/keranjang/removeKeranjang', [KeranjangController::class, 'removeKeranjang'])->name('keranjang.remove');
     Route::post('/chekcout', [CheckoutController::class, 'checkout'])->name('checkout');
     Route::get('/checkout/{id}', [CheckoutController::class, 'getProductCheckout'])->name('checkout.get');
+    Route::get('/riwayat', [CheckoutController::class, 'getCheckout'])->name('riwayat');
+    Route::get('/riwayat/checkout/{id}', [CheckoutController::class, 'getCheckoutById'])->name('riwayat.detail');
 });
 
 
