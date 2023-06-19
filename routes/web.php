@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/', [HomeController::class, 'search'])->name('home');
+Route::get('/search', [HomeController::class, 'search']);
 
 Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
     Route::get('/dashboard', [PenjualController::class, 'index']);
