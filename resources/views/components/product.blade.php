@@ -1,8 +1,4 @@
-<x-app-layout>
-    <div class="py-12 container">
-        <div class="row">
-            @foreach($produk as $item)
-            <div class="col-12 col-xl-4 col-md-6 col-sm-9 py-2 d-flex justify-content-center">
+<div class="col-12 col-xl-4 col-md-6 col-sm-9 py-2 d-flex justify-content-center">
                 <div class="card-produk shadow bg-white position-relative" style="width: 20rem;">
                     <img class="card-img-top img-fluid rounded" src="{{ $item->foto_produk }}" alt="{{ $item->nama_produk }}">
                     <div class="card-body text-center body-produk">
@@ -48,7 +44,3 @@
                     </div>
                 </div>
             </div>
-            @endforeach
-        </div>
-    </div>           
-</x-app-layout>

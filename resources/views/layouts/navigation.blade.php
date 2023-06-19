@@ -21,14 +21,20 @@
         </form>
 
         <div class="flex items-center space-x-4 ml-1 sm:-my-px sm:ml-10">
-            <a href="#" class="text-center text-gray-700 hover:text-blue-700 transition relative">
+            <a href="{{ route('favorite') }}" class="text-center text-gray-700 hover:text-blue-700 transition relative">
                 <div class="text-2xl">
-                    <i class="fas fa-heart"></i>
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="text-xs leading-3 absolute -top-2 -right-2">
+
                 </div>
             </a>
-            <a href="#" class="text-center text-gray-700 hover:text-blue-700 transition relative">
+            <a href="{{ route('keranjang') }}" class="text-center text-gray-700 hover:text-blue-700 transition relative">
                 <div class="text-2xl">
                     <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="text-xs leading-3 absolute -top-2 -right-2">
+
                 </div>
             </a>
         </div>

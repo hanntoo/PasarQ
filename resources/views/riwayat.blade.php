@@ -12,6 +12,38 @@
                     {{ __("Ini adalah halaman riwayat pembelian!") }}
                 </div>
             </div>
+            <!-- resources/views/checkout.blade.php -->
+
+<x-app-layout>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Checkout Produk
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nama Produk</th>
+                            <th>Total Harga</th>
+                            <th>jumlah produk</th>
+                            <th>ID Produk</th>
+                            <th>Foto Produk</th>
+                            <th>ID User</th>
+                            <th>Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($produk as $data)
+                            @include('components.riwayat', ['item' => $data])
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
+
         </div>
     </div>
 </x-app-layout>

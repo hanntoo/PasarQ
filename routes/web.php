@@ -6,7 +6,11 @@ use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\FavoriteController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,13 +37,8 @@ Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
 });
 
 Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
-    Route::get('/keranjang/{id}', function ($id) {
-        return view('keranjang');
-    })->name('keranjang');
-    Route::get('/favorite/{id}', function ($id) {
-        return view('favorite');
-    })->name('favorite');
-    Route::get('/riwayat', RiwayatController::class)->name('riwayat');
+    Route::get('/keranjang', [KeranjangController::class, 'getKeranjang'])->name('keranjang');
+    Route::get('/detail/{id}', [DetailController::class, 'show'])->name('detail');
 });
 
 Route::middleware(['auth', 'checkRole:pembeli,penjual,admin'])->group(function () {
@@ -47,7 +46,17 @@ Route::middleware(['auth', 'checkRole:pembeli,penjual,admin'])->group(function (
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/favorite/postFavorite', [FavoriteController::class, 'addFavorite'])->name('favorite.add');
+    Route::post('/favorite/removeFavorite', [FavoriteController::class, 'removeFavorite'])->name('favorite.remove');
+    Route::get('/favorite', [FavoriteController::class, 'getFavorite'])->name('favorite');
+    Route::post('/keranjang/addKeranjang', [KeranjangController::class, 'addKeranjang'])->name('keranjang.add');
+    Route::post('/keranjang/removeKeranjang', [KeranjangController::class, 'removeKeranjang'])->name('keranjang.remove');
+    Route::post('/chekcout', [CheckoutController::class, 'checkout'])->name('checkout');
+    Route::get('/checkout/{id}', [CheckoutController::class, 'getProductCheckout'])->name('checkout.get');
+    Route::get('/riwayat', [CheckoutController::class, 'getCheckout'])->name('riwayat');
+    Route::get('/riwayat/checkout/{id}', [CheckoutController::class, 'getCheckoutById'])->name('riwayat.detail');
 });
+
 
 Route::view('/about', 'about')->name('about');
 

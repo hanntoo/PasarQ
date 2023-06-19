@@ -5,6 +5,11 @@
                 <div class="p-6 text-gray-900">
                     Favorite Page!
                 </div>
+                <div class="row">
+                    @foreach($favorites as $item)
+                        @include('components.product', ['item' => $item])
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
