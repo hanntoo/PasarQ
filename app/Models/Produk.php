@@ -10,8 +10,10 @@ class Produk extends Model
     use HasFactory;
 
     protected $table = 'produk';
+    protected $primaryKey = 'id_produk';
 
     protected $fillable = [
+        'id_produk',
         'id_penjual',
         'id_kategori',
         'nama_produk',
@@ -31,4 +33,19 @@ class Produk extends Model
     {
         return $this->belongsTo(Kategori::class, 'id_kategori');
     }
+    public function favorite()
+    {
+        return $this->hasMany(favorite::class, 'id_produk');
+    }
+
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class, 'id_produk');
+    }
+
+    public function checkout()
+    {
+        return $this->hasMany(Checkout::class, 'id_produk');
+    }
 }
+    

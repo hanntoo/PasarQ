@@ -17,8 +17,12 @@ class KategoriSeeder extends Seeder
             'nama' => 'Buah',
         ]);
 
-        Kategori::factory()
-            ->times(10)
-            ->create();
+        Kategori::create([
+            'nama' => 'Sayur',
+        ]);
+
+        Kategori::create([
+            'nama' => 'Daging',
+        ]);
     }
 }

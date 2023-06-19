@@ -7,40 +7,39 @@
             </a>
         </div>
 
-        <div class="w-full max-w-xl relative flex">
-            <span class="absolute left-3 top-1.5 text-lg text-gray-400">
-                <i class="fas fa-search"></i>
-            </span>
-            <input type="text" class="w-full border border-primary border-r-0 pl-10 py-2 pr-3 text-sm rounded-l-md rounded-r-none focus:outline-none" placeholder="Search">
-            <button class="bg-blue-500 border-blue-500 text-white px-4 py-2 rounded-r-md rounded-l-none hover:bg-blue-700 hover:text-white transition">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
+        <form action="/search" method="GET">
+            @csrf
+            <div class="w-full max-w-xl relative flex">
+                <span class="absolute left-3 top-1.5 text-lg text-gray-400">
+                    <i class="fas fa-search"></i>
+                </span>
+                <input type="search" class="w-full border border-primary border-r-0 pl-10 py-2 pr-3 text-sm rounded-l-md rounded-r-none focus:outline-none" placeholder="Search" name="cari_produk">
+                <button class="bg-blue-500 border-blue-500 text-white px-4 py-2 rounded-r-md rounded-l-none hover:bg-blue-700 hover:text-white transition" name="submit" type="submit" value="save">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
 
         <div class="flex items-center space-x-4 ml-1 sm:-my-px sm:ml-10">
-            <a href="#" class="text-center text-gray-700 hover:text-blue-700 transition relative">
+            <a href="{{ route('favorite') }}" class="text-center text-gray-700 hover:text-blue-700 transition relative">
                 <div class="text-2xl">
-                    <i class="far fa-heart"></i>
+                    <i class="fas fa-heart"></i>
                 </div>
                 <div class="text-xs leading-3 absolute -top-2 -right-2">
-                    <span class="w-5 h-5 rounded-full flex items-center justify-center bg-blue-700 text-white text-xs">0</span>
+
                 </div>
             </a>
-            <a href="#" class="text-center text-gray-700 hover:text-blue-700 transition relative">
+            <a href="{{ route('keranjang') }}" class="text-center text-gray-700 hover:text-blue-700 transition relative">
                 <div class="text-2xl">
                     <i class="fas fa-shopping-bag"></i>
                 </div>
                 <div class="text-xs leading-3 absolute -top-2 -right-2">
-                    <span class="w-5 h-5 rounded-full flex items-center justify-center bg-blue-700 text-white text-xs">3</span>
+
                 </div>
             </a>
         </div>
     </div>
 </header>
-
-
-
-
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,12 +55,6 @@
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('About') }}
                     </x-nav-link>
-                    @auth
-                        <x-nav-link :href="route('riwayat')" :active="request()->routeIs('riwayat')">
-                            {{ __('Riwayat') }}
-                        </x-nav-link>
-                    @endauth
-                    
                 </div>
             </div>
             @auth

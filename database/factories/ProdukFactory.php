@@ -17,10 +17,10 @@ class ProdukFactory extends Factory
         $kategori = Kategori::inRandomOrder()->first();
         return [
             'id_penjual' => $penjual->id,
-            'id_kategori' => $kategori->id,
+            'id_kategori' => $kategori->id_kategori,
             'nama_produk' => $this->faker->word,
             'harga_produk' => $this->faker->numberBetween(1000, 100000),
-            'berat_produk' => $this->faker->randomElement(['100 gram', '250 gram', '500 gram', '1 kg', '2', '5 kg']),
+            'berat_produk' => $this->faker->randomElement(['100 gram', '250 gram', '500 gram', '1 kg', '2 kg', '5 kg']),
             'foto_produk' => $this->faker->imageUrl,
             'deskripsi_produk' => $this->faker->paragraph,
             'stok_produk' => $this->faker->numberBetween(0, 100),

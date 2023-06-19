@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Produk;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -47,9 +49,16 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+        if (auth()->user()->role === 'penjual') {
+            $idPenjual = auth()->user()->id;
+            $produk = Produk::where('id_penjual', $idPenjual)->get();
+            foreach ($produk as $p) {
+                Storage::delete(str_replace('storage', 'public', $p->foto_produk));
+                $p->delete();
+            }
+        }
 
         Auth::logout();
-
         $user->delete();
 
         $request->session()->invalidate();

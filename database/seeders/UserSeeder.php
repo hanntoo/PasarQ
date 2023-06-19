@@ -42,9 +42,8 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        // Menggabungkan factory dengan seeder untuk membuat user lainnya
         User::factory()
-            ->times(5) // Jumlah user yang ingin di-generate
+            ->times(10)
             ->create();
     }
 }
