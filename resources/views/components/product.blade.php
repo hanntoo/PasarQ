@@ -1,4 +1,4 @@
-            <div class="col-12 col-xl-4 col-md-6 col-sm-9 py-2 d-flex justify-content-center">
+<div class="col-12 col-xl-4 col-md-6 col-sm-9 py-2 d-flex justify-content-center">
                 <div class="card-produk shadow bg-white position-relative" style="width: 20rem;">
                     <img class="card-img-top img-fluid rounded" src="{{ $item->foto_produk }}" alt="{{ $item->nama_produk }}">
                     <div class="card-body text-center body-produk">
@@ -14,7 +14,7 @@
                                 <form class="favorite-form" action="{{ route('favorite.add') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id_produk" value="{{ $item->id_produk }}">
-                                    <button type="submit" class="position-absolute icon-heart" style="top: 10px; right: 10px; background: none; color: border: none;"><i class="fas fa-heart"></i></button>
+                                    <button type="submit" class="far fa-heart position-absolute icon-heart" style="top: 10px; right: 10px;"></button>
                                 </form>
                             @endif
                         @else

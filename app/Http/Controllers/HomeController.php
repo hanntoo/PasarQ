@@ -18,7 +18,6 @@ class HomeController extends Controller
 
         if (Auth::id()) {
             $role = Auth()->user()->role;
-    
             if($role === 'admin'){
                 $user = User::all();
                 $kategori = Kategori::all();
@@ -29,7 +28,7 @@ class HomeController extends Controller
                 $produk = Produk::where('id_penjual', $idPenjual)->get();
                 return view('penjual.home', compact('produk'));
             }else{
-                return view('home');
+                return view('home', compact('produk'));
             }
         } else {
             return view('home', compact('produk'));

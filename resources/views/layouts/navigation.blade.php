@@ -7,7 +7,7 @@
             </a>
         </div>
 
-        <form action="/" method="GET">
+        <form action="/search" method="GET">
             @csrf
             <div class="w-full max-w-xl relative flex">
                 <span class="absolute left-3 top-1.5 text-lg text-gray-400">
