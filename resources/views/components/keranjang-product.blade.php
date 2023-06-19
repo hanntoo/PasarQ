@@ -3,23 +3,6 @@
                     <img class="card-img-top img-fluid rounded" src="{{ $item->foto_produk }}" alt="{{ $item->nama_produk }}">
                     <div class="card-body text-center body-produk">
                         {{-- <a href="{{ route('favorite', ['id' => $item->id_produk]) }}" class="fas fa-heart position-absolute icon-heart" style="top: 10px; right: 10px;"></a> --}}
-                        @if(Auth::check())
-                            @if($item->favorite->contains('id_produk', $item->id_produk) && $item->favorite->contains('id_pembeli', Auth::user()->id))
-                                <form  class="favorite-form" action="{{ route('favorite.remove') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="id_produk" value="{{ $item->id_produk }}">
-                                    <button type="submit" class="position-absolute icon-heart" style="top: 10px; right: 10px; background: none; color:red; border: none;"><i class="fas fa-heart"></i></button>
-                                </form>
-                            @else
-                                <form class="favorite-form" action="{{ route('favorite.add') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="id_produk" value="{{ $item->id_produk }}">
-                                    <button type="submit" class="position-absolute icon-heart" style="top: 10px; right: 10px; background: none; color: border: none;"><i class="fas fa-heart"></i></button>
-                                </form>
-                            @endif
-                        @else
-                            <a href="{{ route('login') }}" class="position-absolute icon-heart" style="top: 10px; right: 10px; background: none; color: border: none;"><i class="fas fa-heart"></i></a>
-                        @endif
                         <a href="{{ route('detail', ['id' => $item->id_produk]) }}" class="fas fa-eye position-absolute icon-eye" style="top: 10px; left: 10px;"></a>                        
                         <h4 class="card-title text-capitalize">{{ $item->nama_produk }}</h4>
                         <p class="card-text">Rp. {{ number_format($item->harga_produk) }},-</p>
@@ -29,7 +12,7 @@
                                 <form class="cart-form" action="{{ route('keranjang.remove') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id_produk" value="{{ $item->id_produk }}">
-                                    <button type="submit" class="btn" style="background-color: #dc3545; color: white;">Hapus dari Keranjang</button>
+                                    <button type="submit" class="btn" style="background-color: #dc3545; color:white;">Hapus dari Keranjang</button>
                                 </form>
                             @else
                                 <form class="cart-form" action="{{ route('keranjang.add') }}" method="POST">

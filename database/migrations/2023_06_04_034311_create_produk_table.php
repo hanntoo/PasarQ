@@ -28,10 +28,6 @@ class CreateProdukTable extends Migration
             // Add the foreign key constraints
             $table->foreign('id_penjual')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_kategori')->references('id')->on('kategori')->onDelete('cascade');
-
-            // Add unique constraints
-            $table->unique('harga_produk');
-            $table->unique('stok_produk');
         });
     }
 

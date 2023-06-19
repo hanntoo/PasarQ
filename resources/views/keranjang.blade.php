@@ -5,6 +5,11 @@
                 <div class="p-6 text-gray-900">
                     Keranjang Page!
                 </div>
+                <div class="row">
+                    @foreach($keranjang as $item)
+                        @include('components.keranjang-product', ['item' => $item])
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

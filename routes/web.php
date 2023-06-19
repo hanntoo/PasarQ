@@ -8,6 +8,7 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KeranjangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,7 @@ Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
 });
 
 Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
-    Route::get('/keranjang/{id}', function ($id) {
-        return view('keranjang');
-    })->name('keranjang');
+    Route::get('/keranjang', [KeranjangController::class, 'getKeranjang'])->name('keranjang');
     Route::get('/detail/{id}', [DetailController::class, 'show'])->name('detail');
     Route::get('/riwayat', RiwayatController::class)->name('riwayat');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -39,6 +38,8 @@ Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
     Route::post('/favorite/postFavorite', [FavoriteController::class, 'addFavorite'])->name('favorite.add');
     Route::post('/favorite/removeFavorite', [FavoriteController::class, 'removeFavorite'])->name('favorite.remove');
     Route::get('/favorite', [FavoriteController::class, 'getFavorite'])->name('favorite');
+    Route::post('/keranjang/addKeranjang', [KeranjangController::class, 'addKeranjang'])->name('keranjang.add');
+    Route::post('/keranjang/removeKeranjang', [KeranjangController::class, 'removeKeranjang'])->name('keranjang.remove');
 });
 
 
