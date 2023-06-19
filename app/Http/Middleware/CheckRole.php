@@ -13,7 +13,7 @@ class CheckRole
         $user = $request->user();
 
         // Jika user memiliki role admin atau role yang diperlukan, lanjutkan ke route berikutnya
-        if ($user && (in_array($user->role, $roles) || $user->role === 'admin')) {
+        if ($user && (in_array($user->role, $roles))) {
             return $next($request);
         }
 

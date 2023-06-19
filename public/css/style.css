@@ -1,0 +1,229 @@
+.btn-cart {
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 1rem;
+  color: #fff;
+  background: #0A2360;
+  border-radius: .5rem;
+  cursor: pointer;
+  text-decoration: none;
+  padding: .25rem 2rem;
+}
+
+.btn-cart:hover {
+  color: white;
+}
+
+.icon-heart,
+.icon-eye {
+  background-color: #eee;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 1.5rem;
+  color: #0A2360;
+}
+
+.icon-heart:hover,
+.icon-eye:hover {
+  background-color: #0A2360;
+  color: white;
+}
+
+.card-produk {
+  width: 20rem;
+}
+
+.card-produk .card-img-top {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-produk .body-produk {
+  position: relative;
+}
+
+.card-produk .icon-heart,
+.card-produk .icon-eye {
+  top: 10px;
+  padding: 5px;
+}
+
+.card-produk .card-title {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.card-produk .card-text {
+  margin-top: 10px;
+}
+
+.card-produk .btn-cart {
+  margin-top: 20px;
+}
+
+.quantity-input {
+  width: 100px;
+  margin-top: 10px;
+}
+
+.add-to-cart-button {
+  margin-top: 20px;
+}
+
+
+  .profile-card-3 {
+    font-family: 'Open Sans', Arial, sans-serif;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    height: 368px;
+    border: none;
+}
+
+.profile-card-3 .background-block {
+    float: left;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.profile-card-3 .background-block .background {
+    width: 100%;
+    vertical-align: top;
+    opacity: 0.9;
+    -webkit-filter: blur(0.5px);
+    filter: blur(0.5px);
+    -webkit-transform: scale(1.8);
+    transform: scale(2.8);
+}
+
+/* .profile {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+} */
+
+.profile-card-3 .card-content {
+    width: 100%;
+    padding: 15px 25px;
+    color: #232323;
+    float: left;
+    background: #efefef;
+    height: 50%;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+    z-index: 9999;
+}
+
+.profile-card-3 .card-content::before {
+    content: '';
+    background: #efefef;
+    width: 120%;
+    height: 100%;
+    left: 11px;
+    bottom: 51px;
+    position: absolute;
+    z-index: -1;
+    transform: rotate(-13deg);
+}
+
+.profile-card-3 .profile {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    max-width: 100px;
+    opacity: 1;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 1);
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+    z-index: 99999;
+}
+
+.profile-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1/1; /* Atur aspek rasio sesuai kebutuhan */
+}
+
+.profile-card-3 h2 {
+    margin: 0 0 5px;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.profile-card-3 h2 small {
+    display: block;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.profile-card-3 i {
+    display: inline-block;
+    font-size: 16px;
+    color: #232323;
+    text-align: center;
+    border: 1px solid #232323;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.profile-card-3 .icon-block {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.profile-card-3 .icon-block a {
+    text-decoration: none;
+}
+
+.profile-card-3 i:hover {
+    background-color: #232323;
+    color: #fff;
+    text-decoration: none;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Menengahkan ikon-ikon secara horizontal */
+}
+
+.icon-block {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center; /* Menengahkan ikon-ikon secara vertikal */
+}
+
+.icon-block a {
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.icon-block i {
+  display: inline-block;
+  font-size: 20px;
+  color: #232323;
+  text-align: center;
+  border: 1px solid #232323;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 50%;
+}
+
+.icon-block i:hover {
+  background-color: #232323;
+  color: #fff;
+}
