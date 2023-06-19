@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Produk;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,8 +14,9 @@ class ProdukSeeder extends Seeder
      */
     public function run(): void
     {
+        $penjual = User::where('role', 'penjual')->inRandomOrder()->first();
         Produk::create([
-            'id_penjual' => 4,
+            'id_penjual' => $penjual->id,
             'id_kategori' => 1,
             'nama_produk' => 'Apel',
             'harga_produk' => 30000,
@@ -25,7 +27,7 @@ class ProdukSeeder extends Seeder
         ]);
 
         Produk::create([
-            'id_penjual' => 5,
+            'id_penjual' => $penjual->id,
             'id_kategori' => 1,
             'nama_produk' => 'Mangga',
             'harga_produk' => 25000,
@@ -36,7 +38,7 @@ class ProdukSeeder extends Seeder
         ]);
 
         Produk::create([
-            'id_penjual' => 8,
+            'id_penjual' => $penjual->id,
             'id_kategori' => 1,
             'nama_produk' => 'Pisang',
             'harga_produk' => 30000,
@@ -47,7 +49,7 @@ class ProdukSeeder extends Seeder
         ]);
 
         Produk::create([
-            'id_penjual' => 7,
+            'id_penjual' => $penjual->id,
             'id_kategori' => 2,
             'nama_produk' => 'Wortel',
             'harga_produk' => 25000,
@@ -58,7 +60,7 @@ class ProdukSeeder extends Seeder
         ]);
 
         Produk::create([
-            'id_penjual' => 5,
+            'id_penjual' => $penjual->id,
             'id_kategori' => 2,
             'nama_produk' => 'Terong',
             'harga_produk' => 25000,
@@ -69,7 +71,7 @@ class ProdukSeeder extends Seeder
         ]);
 
         Produk::create([
-            'id_penjual' => 8,
+            'id_penjual' => $penjual->id,
             'id_kategori' => 2,
             'nama_produk' => 'Cabe',
             'harga_produk' => 80000,
@@ -80,7 +82,7 @@ class ProdukSeeder extends Seeder
         ]);
         
         Produk::create([
-            'id_penjual' => 4,
+            'id_penjual' => $penjual->id,
             'id_kategori' => 3,
             'nama_produk' => 'Ikan Mas',
             'harga_produk' => 50000,
@@ -91,23 +93,23 @@ class ProdukSeeder extends Seeder
         ]);
 
         Produk::create([
-            'id_penjual' => 5,
+            'id_penjual' => $penjual->id,
             'id_kategori' => 3,
             'nama_produk' => 'Daging Ayam',
             'harga_produk' => 100000,
             'berat_produk' => '500 g',
-            'foto_produk' => 'https://cdn-icons-png.flaticon.com/512/4261/4261139.png',
+            'foto_produk' => 'https://cdn-icons-png.flaticon.com/512/10753/10753522.png',
             'deskripsi_produk' => 'Daging Ayam berkualitas tinggi',
             'stok_produk' => 500,
         ]);
 
         Produk::create([
-            'id_penjual' => 5,
+            'id_penjual' => $penjual->id,
             'id_kategori' => 3,
             'nama_produk' => 'Daging Sapi',
             'harga_produk' => 250000,
             'berat_produk' => '1 kg',
-            'foto_produk' => 'https://cdn-icons-png.flaticon.com/512/2395/2395796.png',
+            'foto_produk' => 'https://cdn-icons-png.flaticon.com/512/1134/1134447.png',
             'deskripsi_produk' => 'Daging Ayam berkualitas tinggi',
             'stok_produk' => 100,
         ]);
