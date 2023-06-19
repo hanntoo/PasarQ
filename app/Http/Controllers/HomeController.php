@@ -26,7 +26,7 @@ class HomeController extends Controller
                 $produk = Produk::where('id_penjual', $idPenjual)->get();
                 return view('penjual.home', compact('produk'));
             }else{
-                return view('home');
+                return view('home', compact('produk'));
             }
         } else {
             return view('home', compact('produk'));

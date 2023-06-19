@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/detail/{id}', [DetailController::class, 'show'])->name('detail');
 Route::get('/search', [HomeController::class, 'search']);
 
 Route::middleware(['auth', 'checkRole:penjual'])->group(function () {
@@ -38,7 +39,6 @@ Route::middleware(['auth', 'checkRole:pembeli'])->group(function () {
     Route::get('/favorite/{id}', function ($id) {
         return view('favorite');
     })->name('favorite');
-    Route::get('/detail/{id}', [DetailController::class, 'show'])->name('detail');
     Route::get('/riwayat', RiwayatController::class)->name('riwayat');
 });
 
