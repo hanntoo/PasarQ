@@ -26,7 +26,7 @@
                         <tr>
                             <th>Nama Produk</th>
                             <th>Total Harga</th>
-                            <th>Stok Produk</th>
+                            <th>jumlah produk</th>
                             <th>ID Produk</th>
                             <th>Foto Produk</th>
                             <th>ID User</th>

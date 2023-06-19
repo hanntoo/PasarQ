@@ -44,7 +44,7 @@ class CheckoutController extends Controller
     public function getCheckout()
     {
         $id = Auth::user()->id;
-        $produk = Produk::select('produk.nama_produk', 'checkout.total_harga', 'produk.stok_produk', 'produk.id_produk', 'produk.foto_produk', 'checkout.id')
+        $produk = Produk::select('produk.nama_produk', 'checkout.total_harga', 'checkout.jumlah', 'produk.id_produk', 'produk.foto_produk', 'checkout.id')
         ->join('checkout', 'produk.id_produk', '=', 'checkout.id_produk')
         ->join('users', 'checkout.id_pembeli', '=', 'users.id')
         ->where('checkout.id_pembeli', $id)
@@ -55,7 +55,7 @@ class CheckoutController extends Controller
 
     public function getCheckoutById($id)
     {
-        $produk = Produk::select('produk.nama_produk', 'checkout.total_harga', 'produk.stok_produk', 'produk.id_produk', 'produk.foto_produk', 'users.id')
+        $produk = Produk::select('produk.nama_produk', 'checkout.total_harga', 'checkout.jumlah', 'produk.id_produk', 'produk.foto_produk', 'users.id')
         ->join('checkout', 'produk.id_produk', '=', 'checkout.id_produk')
         ->join('users', 'checkout.id_pembeli', '=', 'users.id')
         ->where('checkout.id', $id)
@@ -67,6 +67,11 @@ class CheckoutController extends Controller
         }
 
         return view('checkout_detail', compact('produk'));
+    }
+
+    public function getCheckoutAdmin()
+    {
+        
     }
 
 }
