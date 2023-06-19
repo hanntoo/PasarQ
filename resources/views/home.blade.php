@@ -18,14 +18,14 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+            <div class="py-12 container">
+                <div class="row">
+                    @foreach($produk as $item)
+                        @include('components.product', ['item' => $item])
+                    @endforeach
+                </div>
+            </div>       
         </div>
     </x-slot>
 
-    <div class="py-12 container">
-        <div class="row">
-            @foreach($produk as $item)
-                @include('components.product', ['item' => $item])
-            @endforeach
-        </div>
-    </div>       
 </x-app-layout>
